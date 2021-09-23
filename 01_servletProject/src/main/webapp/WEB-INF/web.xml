@@ -6,12 +6,14 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   
-  <servlet>	 <!--  서블릿의 설정 -->
+  <!-- 서블릿 설정 -->
+  <servlet>
   	<servlet-name>test1</servlet-name>
   	<servlet-class>com.kh.first.controller.TestServlet1</servlet-class>
   </servlet>
   
-  <servlet-mapping> <!-- 서블릿 매핑 -->
+  <!-- 서블릿 연결(매핑) -->
+  <servlet-mapping>
   	<servlet-name>test1</servlet-name>
   	<url-pattern>/test1.do</url-pattern>
   </servlet-mapping>
