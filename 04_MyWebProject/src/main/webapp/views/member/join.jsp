@@ -211,7 +211,21 @@
 	});
 	
 	$('#idCheck').on('click', function(){
-		 // 구현 예정
+		 $.ajax({
+			url : '/myWeb/idcheck.do',
+			type : 'post',
+			data : {userId : $('#userId').val()},
+			success : function(data) {
+				// console.log(data);
+				if(data==1) {
+					alert("이미 사용중인 아이디입니다.");
+				} else {
+					alert("사용 가능한 아이디입니다.");
+				}
+			}, error : function(errorcode) {
+				console.log(errorcode);
+			}
+		 });
 	});
     
 	</script>

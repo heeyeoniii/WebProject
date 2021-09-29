@@ -69,6 +69,17 @@ public class MemberService {
 		
 		return result;
 	}
+
+	// 아이디 중복 확인
+	public int idcheck(String userId) {
+		con = getConnection();
+		
+		int result = dao.idcheck(con, userId);
+		
+		close(con);
+		
+		return result;
+	}
 }
 
 

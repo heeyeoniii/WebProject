@@ -171,4 +171,34 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	// 아이디 중복 확인 
+	public int idcheck(Connection con, String userId) {
+		int result = 0;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = prop.getProperty("idcheck");
+		
+		try {
+			ps = con.prepareStatement(sql);
+			
+			ps.setString(1, userId);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		} finally {
+			close(rs);
+			close(ps);
+		}
+		
+		return result;
+	}
 }
